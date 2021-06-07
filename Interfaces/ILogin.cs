@@ -1,7 +1,11 @@
-namespace Interfaces
+using System.Collections.Generic;
+using Classes;
+
+namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public interface ILogin
+    public class ILogin 
     {
-         
+        public string Logar;
+        public string Deslogar;
     }
 }

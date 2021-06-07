@@ -1,6 +1,6 @@
 namespace Classes
 {
-    public class Marcas
+    public class Marca
     {
         
     }

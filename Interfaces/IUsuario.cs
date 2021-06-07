@@ -1,7 +1,10 @@
-namespace Interfaces
+using Classes;
+
+namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public interface IUsuario
+    public class IUsuario
     {
-         
+        public string cadastrar;
+        public string deletar;
     }
 }

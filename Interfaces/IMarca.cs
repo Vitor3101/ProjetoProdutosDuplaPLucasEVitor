@@ -1,14 +1,12 @@
-namespace Interfaces
+using System.Collections.Generic;
+using Classes;
+
+namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public interface IMarca
+    public class IMarca
     {
-         string Cadastrar();
-
-         void Listar();
-
-         string Deletar();
-
-
-
+        public string cadastrar;
+        public List<Marca> Listar;
+        public string Deletar; 
     }
 }
