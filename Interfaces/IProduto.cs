@@ -5,8 +5,8 @@ namespace ExercicioProjetoDeProdutos.interfaces
 {
     public class IProduto 
     {
-        public string cadastrar;
-        public string deletar;
-        public List<Produto> listar;
+        string Cadastrar;
+        string Deletar;
+        List<Produto> Listar;
     }
 }

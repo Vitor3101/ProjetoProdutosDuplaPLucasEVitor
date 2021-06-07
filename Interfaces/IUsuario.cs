@@ -4,7 +4,7 @@ namespace ExercicioProjetoDeProdutos.interfaces
 {
     public class IUsuario
     {
-        public string cadastrar;
-        public string deletar;
+        string Cadastrar;
+        string Deletar;
     }
 }
