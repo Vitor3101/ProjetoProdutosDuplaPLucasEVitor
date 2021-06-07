@@ -3,9 +3,9 @@ using Classes;
 
 namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public class ILogin 
+    public interface ILogin 
     {
-        string Logar;
-        string Deslogar;
+        string Logar();
+        string Deslogar();
     }
 }

@@ -2,9 +2,9 @@ using Classes;
 
 namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public class IUsuario
+    public interface IUsuario
     {
-        string Cadastrar;
-        string Deletar;
+        string Cadastrar(Usuario U);
+        string Deletar(Usuario U);
     }
 }

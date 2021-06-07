@@ -3,10 +3,10 @@ using Classes;
 
 namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public class IMarca
+    public interface IMarca
     {
-        string Cadastrar;
-        List<Marca> Listar;
-        string Deletar; 
+        string Cadastrar();
+        List<Marca> Listar();
+        string Deletar(); 
     }
 }
