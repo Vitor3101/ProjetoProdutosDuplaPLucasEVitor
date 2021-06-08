@@ -1,4 +1,3 @@
-using Classes;
 using System;
 using System.Collections.Generic;
 using ExercicioProjetoDeProdutos.interfaces;
