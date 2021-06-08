@@ -1,10 +1,12 @@
 using ExercicioProjetoDeProdutos.interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace Classes
 {
     public class Login : ILogin
     {
+        public List<Usuario> Usuarios = new List<Usuario>();        
         private bool logado;
         public Login()
         {
