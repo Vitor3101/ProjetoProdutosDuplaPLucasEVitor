@@ -1,13 +1,12 @@
+using System.Collections.Generic;
+using Classes;
+
 namespace Interfaces
 {
-    public interface IProduto
+    public interface IP
     {
-         string Cadastrar();
-
-         void Listar();
-
-         string Deletar();
-
-
+        void Cadastrar();
+        List<P> ListaProdutos();
+        string Deletar();
     }
 }

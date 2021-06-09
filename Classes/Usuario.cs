@@ -1,6 +1,6 @@
 namespace Classes
 {
-    public class Usuario
+    public class U
     {
         
     }

@@ -1,14 +1,12 @@
+using System.Collections.Generic;
+using Classes;
+
 namespace Interfaces
 {
-    public interface IMarca
+    public interface IM
     {
-         string Cadastrar();
-
-         void Listar();
-
-         string Deletar();
-
-
-
+        void Cadastrar(M ListaMarcas);
+        List<M> Listar();
+        string Deletar(M ListaMarcas);
     }
 }
