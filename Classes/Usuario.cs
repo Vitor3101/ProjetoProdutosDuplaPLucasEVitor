@@ -14,6 +14,7 @@ namespace Classes
 
         public string Cadastrar(Usuario U, List<Usuario> L)
         {
+            DataDeCadastro = DateTime.Now;
             U.Codigo = 0;
             foreach (Usuario _u in L)
             {
@@ -63,8 +64,7 @@ namespace Classes
 
         public string Deletar(Usuario U, List<Usuario> L)
         {
-            L.Remove(L.Find(x => x == U));
-            U = null;
+            L.Remove(L.Find(x => x.Codigo == U.Codigo));
             return @"
             ======================================================
             |                                                    |
@@ -102,12 +102,16 @@ namespace Classes
             {
                 if (_u.Email == U.Email && _u.Senha == U.Senha)
                 {
+                    U.Nome = _u.Nome;
+                    U.Codigo = _u.Codigo;
+                    U.DataDeCadastro = _u.DataDeCadastro;
                     SucessoVerificacao = true;
                 }
 
             }
             if (SucessoVerificacao==true)
             {
+                
                 return true;
             }
             else
@@ -115,5 +119,9 @@ namespace Classes
                 return false;
             }
         }
+        public string RetornarNome(){
+            return Nome;
+        }
+
     }
 }

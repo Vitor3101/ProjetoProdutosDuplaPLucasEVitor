@@ -8,5 +8,6 @@ namespace ExercicioProjetoDeProdutos.interfaces
         string Cadastrar(Usuario U, List<Usuario> L);
         string Deletar(Usuario U, List<Usuario> L);
         bool Verificacao(Usuario U, List<Usuario> L);
+        string RetornarNome();
     }
 }
