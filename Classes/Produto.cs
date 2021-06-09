@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Interfaces;
 
 namespace Classes
 {
-    public class P : M, IP
+    public class P : IP
     {
         public int CodigoProduto;
         public string NomeProduto;
@@ -31,27 +32,34 @@ namespace Classes
             int QntPCadastro = int.Parse(Console.ReadLine());
             for (int i = 0; i < QntPCadastro; i++)
             {
-                Console.WriteLine("Qual é o Nome do Produto que você deseja cadastrar?");
+                Console.WriteLine($"Qual é o Nome do {(i + 1)}º Produto que você deseja cadastrar?");
                 string _NomeProdutoC = Console.ReadLine();
                 Console.WriteLine("Qual é o Preço do produto que está sendo cadastrado?");
                 float _PrecoC = float.Parse(Console.ReadLine());
                 ListaDeProdutos.Add(new P(i, _NomeProdutoC, _PrecoC));
                 Console.Clear();
                 Console.WriteLine("Produto cadastrado!");
+                Thread.Sleep(1000);
             }
         }
 
         public string Deletar()
         {
-            Console.WriteLine("Qual é o nome do Produto que você deseja remover?");
-            string NomeProdutoRemover = (Console.ReadLine());
-            ListaDeProdutos.RemoveAll(X => X.NomeProduto == NomeProdutoRemover);
-            Console.Clear();
-            Console.WriteLine("Produto deletado com sucesso!");
+            Console.WriteLine("Quantos produtos você deseja Remover?");
+            int QntProdutosRemove = int.Parse(Console.ReadLine());
+            for (int i = 0; i < QntProdutosRemove; i++)
+            {
+                Console.WriteLine($"Qual é o nome do {(i + 1)}º Produto que você deseja remover?");
+                string NomeProdutoRemover = (Console.ReadLine());
+                ListaDeProdutos.RemoveAll(X => X.NomeProduto == NomeProdutoRemover);
+                Console.Clear();
+                Console.WriteLine("Produto deletado com sucesso!");
+                Thread.Sleep(1000);
+            }
             return "Deletado";
         }
 
-        public List<P> ListaProdutos()
+        public List<P> ListarProdutos()
         {
             foreach (var P in ListaDeProdutos)
             {

@@ -6,7 +6,7 @@ namespace Interfaces
     public interface IP
     {
         void Cadastrar();
-        List<P> ListaProdutos();
+        List<P> ListarProdutos();
         string Deletar();
     }
 }
