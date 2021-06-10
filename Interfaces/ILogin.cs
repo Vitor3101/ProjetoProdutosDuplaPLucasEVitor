@@ -1,7 +1,10 @@
-namespace Interfaces
+using Classes;
+
+namespace ExercicioProjetoDeProdutos.interfaces
 {
-    public interface ILogin
+    public interface ILogin 
     {
-         
+        string Logar(Usuario U);
+        string Deslogar(Usuario U);
     }
 }
