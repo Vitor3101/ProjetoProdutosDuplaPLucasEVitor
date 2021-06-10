@@ -55,13 +55,16 @@ gi|===================================|");
                         switch (OpcaoMenuMarcas)
                         {
                             case "1":
-                                produto1.Cadastrar();
+                                marca1.Cadastrar();
                                 break;
                             case "2":
-                                produto1.Deletar();
+                                marca1.Deletar();
                                 break;
                             case "3":
-                                produto1.ListarProdutos();
+                                foreach (M item in marca1.ListarMarcas())
+                                {
+                                    Console.WriteLine($"Id: {item.CodigoMarca} Nome: {item.NomeMarca}");
+                                }
                                 break;
                             default:
                                 break;
@@ -83,13 +86,16 @@ gi|===================================|");
                         switch (OpcaoMenuProdutos)
                         {
                             case "1":
-                                produto1.Cadastrar();
+                                produto1.Cadastrar(marca1);
                                 break;
                             case "2":
                                 produto1.Deletar();
                                 break;
                             case "3":
-                                produto1.ListarProdutos();
+                                foreach (P item in produto1.ListarProdutos())
+                                {
+                                    Console.WriteLine($"Id: {item.CodigoProduto}  Preço: {item.Preco}  Nome: {item.NomeProduto} Usuário que cadastrou: {item}");
+                                }
                                 break;
                             default:
                                 break;

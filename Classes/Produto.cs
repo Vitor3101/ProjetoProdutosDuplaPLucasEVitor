@@ -25,46 +25,53 @@ namespace Classes
             Preco = _Preco;
         }
 
-        public void Cadastrar()
+        public void Cadastrar(M m)
         {
-            List<P> ListaDeProdutos = new List<P>();
-            Console.WriteLine("Quantos Produtos você deseja cadastrar?");
-            int QntPCadastro = int.Parse(Console.ReadLine());
-            for (int i = 0; i < QntPCadastro; i++)
+            Console.Clear();
+            Console.WriteLine("Qual é a quantidade de produtos que você deseja cadastrar no sistema?");
+            int QntNomesC = int.Parse(Console.ReadLine());
+            int codigo;
+            for (int i = 0; i < QntNomesC; i++)
             {
-                Console.WriteLine($"Qual é o Nome do {(i + 1)}º Produto que você deseja cadastrar?");
-                string _NomeProdutoC = Console.ReadLine();
-                Console.WriteLine("Qual é o Preço do produto que está sendo cadastrado?");
-                float _PrecoC = float.Parse(Console.ReadLine());
-                ListaDeProdutos.Add(new P(i, _NomeProdutoC, _PrecoC));
+                codigo = 0;
+                P p = new P();
                 Console.Clear();
-                Console.WriteLine("Produto cadastrado!");
+                Console.WriteLine($"Qual é o nome da {(i + 1)}º marca que você deseja cadastrar?");
+                p.NomeProduto = Console.ReadLine();
+                p.DataCadastroProduto = DateTime.Now;
+                Console.WriteLine("Qual a marca desse produto (necessário estar cadastrada)");
+                p.Marca = m.ListaMarcas.Find(x => x.NomeMarca == Console.ReadLine());
+                foreach (P item in ListaDeProdutos)
+                {
+                    codigo ++;
+                }
+                p.CodigoProduto = codigo;
+                ListaDeProdutos.Add(p);
+                Console.Clear();
+                Console.WriteLine("Produto cadastrado com sucesso!");
                 Thread.Sleep(1000);
             }
         }
 
         public string Deletar()
         {
-            Console.WriteLine("Quantos produtos você deseja Remover?");
+            Console.Clear();
+            Console.WriteLine("Quantos produtos você deseja remover?");
             int QntProdutosRemove = int.Parse(Console.ReadLine());
             for (int i = 0; i < QntProdutosRemove; i++)
             {
-                Console.WriteLine($"Qual é o nome do {(i + 1)}º Produto que você deseja remover?");
-                string NomeProdutoRemover = (Console.ReadLine());
-                ListaDeProdutos.RemoveAll(X => X.NomeProduto == NomeProdutoRemover);
+                Console.WriteLine($"Qual é o nome do {i+1}ª produto que você deseja remover?");
+                string NomeProdutoRemove = Console.ReadLine();
+                ListaDeProdutos.RemoveAll(X => X.NomeProduto == NomeProdutoRemove);
                 Console.Clear();
-                Console.WriteLine("Produto deletado com sucesso!");
+                Console.WriteLine($"A marca com o nome {NomeProdutoRemove} foi removida com sucesso!");
                 Thread.Sleep(1000);
             }
-            return "Deletado";
+            return "Todos os produtos mencionados foram deletados com sucesso";
         }
 
         public List<P> ListarProdutos()
         {
-            foreach (var P in ListaDeProdutos)
-            {
-                Console.WriteLine($"Id: {CodigoProduto}  Preço: {Preco}  Nome: {NomeProduto}");
-            }
             return ListaDeProdutos;
         }
     }
