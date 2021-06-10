@@ -25,12 +25,14 @@ namespace Classes
             Preco = _Preco;
         }
 
-        public string Cadastrar(M m)
+        public string Cadastrar(M m, Usuario u, List<Usuario> L)
         {
             Console.Clear();
             Console.WriteLine("Qual é a quantidade de produtos que você deseja cadastrar no sistema?");
             int QntNomesC = int.Parse(Console.ReadLine());
             int codigo;
+            bool RespostaValida= false;
+            string Marca;
             for (int i = 0; i < QntNomesC; i++)
             {
                 codigo = 0;
@@ -39,10 +41,37 @@ namespace Classes
                 Console.WriteLine($"Qual é o nome do {(i + 1)}º produto que você deseja cadastrar?");
                 p.NomeProduto = Console.ReadLine();
                 p.DataCadastroProduto = DateTime.Now;
-                Console.WriteLine("Qual é a marca desse produto (necessário estar cadastrada)");
-                p.Marca = m.ListaMarcas.Find(x => x.NomeMarca == Console.ReadLine());
+                bool AcheiAMArca;
+                do
+                {
+                    AcheiAMArca = false;
+                    Console.WriteLine("Qual é a marca desse produto ?");
+                    Marca= Console.ReadLine();
+                    foreach (M item in m.ListaMarcas)
+                    {
+                        if (item.NomeMarca == Marca)
+                        {
+                            AcheiAMArca = true;
+                        }
+                    }
+                    if (AcheiAMArca == true)
+                    {
+                        RespostaValida = true;
+                        p.Marca = m.ListaMarcas.Find(x => x.NomeMarca == Marca);
+                    }
+                    else
+                    {
+                        RespostaValida = false;
+                        Console.WriteLine("Marca inválida!!! As marcas disponíveis são:");
+                        foreach (M item in m.ListaMarcas)
+                        {
+                            Console.WriteLine($"{item.NomeMarca}");
+                        }
+                    }
+                } while (RespostaValida==false);
                 Console.WriteLine("Qual é o preço desse produto?");
                 p.Preco = float.Parse(Console.ReadLine());
+                p.CadastradoPor = L.Find(x => x.RetornarNome() == u.RetornarNome());
                 foreach (P item in ListaDeProdutos)
                 {
                     codigo ++;
