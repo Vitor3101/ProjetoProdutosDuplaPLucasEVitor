@@ -23,7 +23,7 @@ namespace Classes
             NomeMarca = _NomeMarca;
             DataCadastroMarca = _DataCadastro;
         }
-        public void Cadastrar()
+        public string Cadastrar()
         {
             Console.Clear();
             Console.WriteLine("Qual é a quantidade de marcas que você deseja cadastrar no sistema?");
@@ -47,9 +47,10 @@ namespace Classes
                 Console.WriteLine("Marca cadastrada com sucesso!");
                 Thread.Sleep(1000);
             }
+            return "Todas as marcas mencionadas foram cadastradas!";
         }
 
-        public void Deletar()
+        public string Deletar()
         {
             Console.Clear();
             Console.WriteLine("Quantas marcas você deseja remover?");
@@ -63,7 +64,7 @@ namespace Classes
                 Console.WriteLine($"A marca com o nome {NomeMarcaRemove} foi removida com sucesso!");
                 Thread.Sleep(1000);
             }
-
+            return "Todas as marcas mencionadas foram deletadas!";
         }
 
         public List<M> ListarMarcas()

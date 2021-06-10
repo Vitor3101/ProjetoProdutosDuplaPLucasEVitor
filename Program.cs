@@ -55,10 +55,10 @@ gi|===================================|");
                         switch (OpcaoMenuMarcas)
                         {
                             case "1":
-                                marca1.Cadastrar();
+                                Console.WriteLine(marca1.Cadastrar());
                                 break;
                             case "2":
-                                marca1.Deletar();
+                                Console.WriteLine(marca1.Deletar());
                                 break;
                             case "3":
                                 foreach (M item in marca1.ListarMarcas())
@@ -86,10 +86,10 @@ gi|===================================|");
                         switch (OpcaoMenuProdutos)
                         {
                             case "1":
-                                produto1.Cadastrar(marca1);
+                                Console.WriteLine(produto1.Cadastrar(marca1));
                                 break;
                             case "2":
-                                produto1.Deletar();
+                                Console.WriteLine(produto1.Deletar());
                                 break;
                             case "3":
                                 foreach (P item in produto1.ListarProdutos())

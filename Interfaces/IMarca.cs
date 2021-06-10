@@ -5,8 +5,8 @@ namespace Interfaces
 {
     public interface IM
     {
-        void Cadastrar();
+        string Cadastrar();
         List<M> ListarMarcas();
-        void Deletar();
+        string Deletar();
     }
 }

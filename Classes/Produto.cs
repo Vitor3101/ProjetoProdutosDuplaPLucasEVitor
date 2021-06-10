@@ -25,7 +25,7 @@ namespace Classes
             Preco = _Preco;
         }
 
-        public void Cadastrar(M m)
+        public string Cadastrar(M m)
         {
             Console.Clear();
             Console.WriteLine("Qual é a quantidade de produtos que você deseja cadastrar no sistema?");
@@ -36,11 +36,13 @@ namespace Classes
                 codigo = 0;
                 P p = new P();
                 Console.Clear();
-                Console.WriteLine($"Qual é o nome da {(i + 1)}º marca que você deseja cadastrar?");
+                Console.WriteLine($"Qual é o nome do {(i + 1)}º produto que você deseja cadastrar?");
                 p.NomeProduto = Console.ReadLine();
                 p.DataCadastroProduto = DateTime.Now;
-                Console.WriteLine("Qual a marca desse produto (necessário estar cadastrada)");
+                Console.WriteLine("Qual é a marca desse produto (necessário estar cadastrada)");
                 p.Marca = m.ListaMarcas.Find(x => x.NomeMarca == Console.ReadLine());
+                Console.WriteLine("Qual é o preço desse produto?");
+                p.Preco = float.Parse(Console.ReadLine());
                 foreach (P item in ListaDeProdutos)
                 {
                     codigo ++;
@@ -51,6 +53,7 @@ namespace Classes
                 Console.WriteLine("Produto cadastrado com sucesso!");
                 Thread.Sleep(1000);
             }
+            return "Todos os produtos mencionados foram cadastrados!";
         }
 
         public string Deletar()
@@ -64,7 +67,7 @@ namespace Classes
                 string NomeProdutoRemove = Console.ReadLine();
                 ListaDeProdutos.RemoveAll(X => X.NomeProduto == NomeProdutoRemove);
                 Console.Clear();
-                Console.WriteLine($"A marca com o nome {NomeProdutoRemove} foi removida com sucesso!");
+                Console.WriteLine($"O produto com o nome {NomeProdutoRemove} foi removido com sucesso!");
                 Thread.Sleep(1000);
             }
             return "Todos os produtos mencionados foram deletados com sucesso";
