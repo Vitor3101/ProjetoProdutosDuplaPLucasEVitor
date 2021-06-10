@@ -5,8 +5,8 @@ namespace ExercicioProjetoDeProdutos.interfaces
 {
     public interface IP
     {
-        string Cadastrar();
+        string Cadastrar(M m);
+        List<P> ListarProdutos();
         string Deletar();
-        List<P> Listar();
     }
 }

@@ -1,23 +1,81 @@
+using System;
 using System.Collections.Generic;
+using System.Threading;
 using ExercicioProjetoDeProdutos.interfaces;
 
 namespace Classes
 {
     public class P : IP
     {
-        public string Cadastrar()
+        public int CodigoProduto;
+        public string NomeProduto;
+        public float Preco;
+        public DateTime DataCadastroProduto;
+        public M Marca;
+        public Usuario CadastradoPor;
+        public List<P> ListaDeProdutos = new List<P>();
+
+        public P()
         {
-            throw new System.NotImplementedException();
+        }
+        public P(int _Codigo, string _NomeProduto, float _Preco)
+        {
+            CodigoProduto = _Codigo;
+            NomeProduto = _NomeProduto;
+            Preco = _Preco;
+        }
+
+        public string Cadastrar(M m)
+        {
+            Console.Clear();
+            Console.WriteLine("Qual é a quantidade de produtos que você deseja cadastrar no sistema?");
+            int QntNomesC = int.Parse(Console.ReadLine());
+            int codigo;
+            for (int i = 0; i < QntNomesC; i++)
+            {
+                codigo = 0;
+                P p = new P();
+                Console.Clear();
+                Console.WriteLine($"Qual é o nome do {(i + 1)}º produto que você deseja cadastrar?");
+                p.NomeProduto = Console.ReadLine();
+                p.DataCadastroProduto = DateTime.Now;
+                Console.WriteLine("Qual é a marca desse produto (necessário estar cadastrada)");
+                p.Marca = m.ListaMarcas.Find(x => x.NomeMarca == Console.ReadLine());
+                Console.WriteLine("Qual é o preço desse produto?");
+                p.Preco = float.Parse(Console.ReadLine());
+                foreach (P item in ListaDeProdutos)
+                {
+                    codigo ++;
+                }
+                p.CodigoProduto = codigo;
+                ListaDeProdutos.Add(p);
+                Console.Clear();
+                Console.WriteLine("Produto cadastrado com sucesso!");
+                Thread.Sleep(1000);
+            }
+            return "Todos os produtos mencionados foram cadastrados!";
         }
 
         public string Deletar()
         {
-            throw new System.NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Quantos produtos você deseja remover?");
+            int QntProdutosRemove = int.Parse(Console.ReadLine());
+            for (int i = 0; i < QntProdutosRemove; i++)
+            {
+                Console.WriteLine($"Qual é o nome do {i+1}ª produto que você deseja remover?");
+                string NomeProdutoRemove = Console.ReadLine();
+                ListaDeProdutos.RemoveAll(X => X.NomeProduto == NomeProdutoRemove);
+                Console.Clear();
+                Console.WriteLine($"O produto com o nome {NomeProdutoRemove} foi removido com sucesso!");
+                Thread.Sleep(1000);
+            }
+            return "Todos os produtos mencionados foram deletados com sucesso";
         }
 
-        public List<P> Listar()
+        public List<P> ListarProdutos()
         {
-            throw new System.NotImplementedException();
+            return ListaDeProdutos;
         }
     }
 }
