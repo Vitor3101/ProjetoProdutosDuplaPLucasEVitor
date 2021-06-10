@@ -1,13 +1,7 @@
 namespace Interfaces
 {
-    public interface IMarca
+    public interface IM
     {
-         string Cadastrar();
-
-         void Listar();
-
-         string Deletar();
-
 
 
     }

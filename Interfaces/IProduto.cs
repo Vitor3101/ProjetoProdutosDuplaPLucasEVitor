@@ -1,13 +1,6 @@
 namespace Interfaces
 {
-    public interface IProduto
+    public interface IP
     {
-         string Cadastrar();
-
-         void Listar();
-
-         string Deletar();
-
-
     }
 }

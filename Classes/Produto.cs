@@ -1,6 +1,6 @@
-namespace 1.Classes
+namespace Classes
 {
-    public class Produto
+    public class P
     {
         
     }
