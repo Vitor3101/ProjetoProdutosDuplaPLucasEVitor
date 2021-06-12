@@ -10,13 +10,10 @@ namespace Classes
         public int CodigoMarca;
         public string NomeMarca; 
         public DateTime DataCadastroMarca;
-
         public List<M> ListaMarcas = new List<M>();
-
         public M()
         {
         }
-
         public M(int _Codigo, string _NomeMarca, DateTime _DataCadastro)
         {
             CodigoMarca = _Codigo;

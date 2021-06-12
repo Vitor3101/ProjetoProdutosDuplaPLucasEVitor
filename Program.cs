@@ -123,6 +123,8 @@ namespace _1
                 }
                 Console.Clear();
             }
+            Console.Clear();
+            Thread.Sleep(700);
         }
     }
 }

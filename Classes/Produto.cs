@@ -45,7 +45,7 @@ namespace Classes
                 do
                 {
                     AcheiAMArca = false;
-                    Console.WriteLine("Qual é a marca desse produto ?");
+                    Console.WriteLine("Qual é a marca desse produto?");
                     Marca= Console.ReadLine();
                     foreach (M item in m.ListaMarcas)
                     {
